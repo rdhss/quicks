@@ -6,8 +6,6 @@ Simple Quicks
 </h1>
 
 
-#
-
 ## Built With
 
 - [React.js]
@@ -36,7 +34,7 @@ Demo : https://serene-florentine-558340.netlify.app/
 
 ## FEATURES
 
-. Task
+- Task
 
 - Message
 
