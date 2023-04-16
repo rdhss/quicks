@@ -1,0 +1,14 @@
+.text-wraper {
+        white-space: nowrap; 
+        width: 300px; 
+        overflow: hidden;
+        text-overflow: ellipsis; 
+}
+
+.text-wraper2 {
+        /* white-space: nowrap;  */
+        width: 442px; 
+        overflow: hidden;
+        height: 90px;
+        text-overflow: ellipsis; 
+}
