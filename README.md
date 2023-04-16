@@ -29,7 +29,7 @@ Simple Quicks
 
 ## Demonstration
 
-Demo : https://serene-florentine-558340.netlify.app/
+Demo : https://effulgent-smakager-96df0b.netlify.app/
 
 
 ## FEATURES
