@@ -1,7 +1,12 @@
-<p align="center">
+<div align="center">
+  <img alt="Logo" src="./src/assets/icons/simpleQuick.svg" width="100" />
+</div>
+<h1 align="center">
 Simple Quicks
-</p>
+</h1>
 
+
+##
 
 ## Built With
 
