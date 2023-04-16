@@ -6,7 +6,9 @@ import {
 import { faChevronUp, faEllipsis, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import pen from "../../assets/icons/pen.svg";
+import penmuted from "../../assets/icons/nodesc.svg";
 import bookmark from "../../assets/icons/bookmark.svg";
+import nobookmark from "../../assets/icons/nobooks.svg";
 import React, { useEffect,useState } from "react";
 
 const listSticker = [
@@ -50,7 +52,6 @@ const dateRef = React.useRef();
     const list = dataTask.sticker.map((item) => {
       return item.id
     })
-    console.log(list.includes(id))
     if(list.includes(id)){
       return true
     } else {
@@ -63,7 +64,6 @@ const dateRef = React.useRef();
 
     // eslint-disable-next-line eqeqeq
     const test = listSticker.filter((item)=> item.id == e.target.id)
-    console.log(isInclude(e.target.id))
     if(isInclude(Number(e.target.id))){
       setListTask(
         listTask.map((item) =>
@@ -79,8 +79,6 @@ const dateRef = React.useRef();
 
     }
 
-
-    console.log(e.target.id);
   }
 
 
@@ -168,7 +166,7 @@ const dateRef = React.useRef();
         />
       </div>
       <div className="mt-3 pl-8 flex items-center gap-4">
-        <img src={pen} alt="" className="self-start pt-1 cursor-pointer" onClick={()=> {setEditDesc(true) } }/>
+        <img src={dataTask.desc === "" ? penmuted : pen} alt="" className="self-start pt-1 cursor-pointer" onClick={()=> {setEditDesc(true) } }/>
         {editDesc ?
         <textarea value={editValue} className="outline-none border-lightBrown border-[1px] p-2 rounded-md" onChange={(e)=> setEditValue(e.target.value)} name="" id="" cols={50} rows={5} ref={descRef} onKeyDown={handleEdit}></textarea>
         :
@@ -178,14 +176,14 @@ const dateRef = React.useRef();
         }
       </div>
       <div className="mt-3 pl-8 flex items-center gap-4 relative">
-        <img src={bookmark} alt="" className="self-start pt-1 cursor-pointer" onClick={()=> {setStickerList(!stickerList) } }/>
+        <img src={dataTask.sticker.length > 0 ? bookmark : nobookmark} alt="" className="self-start pt-1 cursor-pointer" onClick={()=> {setStickerList(!stickerList) } }/>
         <div className="w-[400px] gap-3">
           {dataTask.sticker?.map((item)=> 
             <p style={{backgroundColor : item.color}} className={'p-2 rounded-md text-sm inline-block mr-3 mb-2'}>{item.text}</p>
           )}
         </div>
         {stickerList &&
-        <div className=" scale-75 absolute bottom-[-20rem] px-2 py-1 w-64 bg-white rounded-md border-[1px] border-lightBrown">
+        <div className="z-30 scale-75 absolute bottom-[-20rem] px-2 py-1 w-64 bg-white rounded-md border-[1px] border-lightBrown">
               {listSticker.map((item) => 
               <p onClick={handleSticker} style={{backgroundColor : item.color, borderColor : isInclude(item.id) && 'blue' }} id={item.id} className="mb-3 font-semibold border-[2px] py-1 px-1 rounded-md cursor-pointer">{item.text}</p>
               )}

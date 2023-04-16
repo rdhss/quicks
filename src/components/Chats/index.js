@@ -7,13 +7,13 @@ const Chats = ({ setFastVisa, dataChat, setChatClick, setCurrentChat }) => {
   
     const handleClick = (e) => {
         setChatClick(true)
-        console.log(dataChat);
         setCurrentChat(allChat?.filter((item)=> item.id === dataChat.id ))
         if(dataChat.id === 999){
           setFastVisa(true)
         }
       };
 
+      
   return (
     <div
       id={dataChat.id}

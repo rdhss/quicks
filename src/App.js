@@ -6,38 +6,46 @@ import task from "./assets/icons/task.png";
 import inbox from "./assets/icons/inbox.png";
 import inboxActive from "./assets/icons/inboxActived.png";
 import taskActive from "./assets/icons/taskActived.png";
+import api from "./assets/icons/api.svg";
 import { useEffect, useState } from "react";
 import Inbox from "./components/Inbox";
 import Modal from "./components/Modal";
 import Task from "./components/Task";
-import simple from './assets/icons/simpleQuick.svg'
+import simple from "./assets/icons/simpleQuick.svg";
+import Api from "./components/API";
 
 function App() {
   const [spread, setSpread] = useState(false);
   const [menuActive, setMenuActive] = useState(false);
-  const [currentMenu, setCurrentMenu] = useState('');
-  const [splash, setSplash] = useState(false)
+  const [currentMenu, setCurrentMenu] = useState("");
+  const [splash, setSplash] = useState(false);
   // const current
   const getCurrentMenu = (menu) => {
     switch (menu) {
       case "inbox":
-        return <Inbox/>
+        return <Inbox />;
       case "task":
-        return <Task/>
-      default :
-        return <p>error</p>
+        return <Task />;
+      case "api":
+        return <Api />;
+      default:
+        return <p>error</p>;
     }
-  }
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     setTimeout(() => {
       setSplash(true);
     }, 1800);
-  },[])
+  }, []);
 
   return (
     <div className="bg-screen w-screen h-screen flex overflow-hidden">
-      <div className={`h-screen w-screen animate-fading  bg-[#0F8A69] overflow-hidden absolute z-50 ${splash && 'hidden'}`}>
+      <div
+        className={`h-screen w-screen animate-fading  bg-[#0F8A69] overflow-hidden absolute z-50 ${
+          splash && "hidden"
+        }`}
+      >
         <img className="animate-slide-top" src={simple} alt="" />
       </div>
       <nav className="w-56 border-r-[1px] border-white"></nav>
@@ -53,6 +61,28 @@ function App() {
           />
         </div>
         <nav className="absolute flex gap-1 right-8 bottom-4">
+          {spread &&
+          <div className="relative">
+            <p
+              className={`absolute text-white top-[-1.3rem] text-xs left-[0.68rem] ${
+                menuActive && "hidden"
+              }`}
+            >
+              API
+            </p>
+            <img
+              onClick={() => {
+                setMenuActive(true);
+                setCurrentMenu("api");
+              }}
+              src={api}
+              width={41}
+              alt=""
+              className="cursor-pointer mr-2"
+            />
+          </div>
+          
+          }
           <div
             className={`
             spread z-10 flex transition-all 
@@ -109,7 +139,9 @@ function App() {
             className={`cursor-pointer z-30 ${menuActive && "opacity-60"}`}
           />
         </nav>
-        {currentMenu !== "" ? <Modal>{getCurrentMenu(currentMenu)}</Modal> : null}
+        {currentMenu !== "" ? (
+          <Modal>{getCurrentMenu(currentMenu)}</Modal>
+        ) : null}
       </main>
     </div>
   );
