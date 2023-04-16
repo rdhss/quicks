@@ -18,6 +18,10 @@ Simple Quicks
    ```sh
    git clone https://github.com/rdhss/simpel-quicks
    ```
+1. change dir
+   ```sh
+   cd simpel-quicks
+   ```
 2. Install NPM packages
    ```sh
    npm install
