@@ -185,7 +185,7 @@ const dateRef = React.useRef();
           )}
         </div>
         {stickerList &&
-        <div className="z-50 scale-75 absolute bottom-[-20rem] px-2 py-1 w-64 bg-white rounded-md border-[1px] border-lightBrown">
+        <div className=" scale-75 absolute bottom-[-20rem] px-2 py-1 w-64 bg-white rounded-md border-[1px] border-lightBrown">
               {listSticker.map((item) => 
               <p onClick={handleSticker} style={{backgroundColor : item.color, borderColor : isInclude(item.id) && 'blue' }} id={item.id} className="mb-3 font-semibold border-[2px] py-1 px-1 rounded-md cursor-pointer">{item.text}</p>
               )}

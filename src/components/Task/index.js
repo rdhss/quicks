@@ -52,14 +52,14 @@ const Task = () => {
             My Task <FontAwesomeIcon icon={faChevronDown} />
           </button>
           {mytask && (
-            <div className="bg-white absolute left-12 mt-2 border-lightBrown border-[1px] rounded-md font-semibold">
+            <div className="bg-white z-30 absolute left-12 mt-2 border-lightBrown border-[1px] rounded-md font-semibold">
               <p
                 onClick={() => setMytask(!mytask)}
-                className="p-2 border-lightBrown border-b-[1px] pr-20"
+                className="p-2 cursor-pointer border-lightBrown border-b-[1px] pr-20"
               >
                 Personal Errands
               </p>
-              <p onClick={() => setMytask(!mytask)} className="p-2">
+              <p onClick={() => setMytask(!mytask)} className="p-2 cursor-pointer">
                 Urgent To-Do
               </p>
             </div>
